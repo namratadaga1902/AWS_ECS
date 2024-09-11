@@ -1,0 +1,18 @@
+{
+  "family": "sample-task",
+  "containerDefinitions": [
+    {
+      "name": "sample-container",
+      "image": "<your-account-id>.dkr.ecr.<your-region>.amazonaws.com/sample-webpage:latest",
+      "memory": 512,
+      "cpu": 256,
+      "essential": true,
+      "portMappings": [
+        {
+          "containerPort": 80,
+          "hostPort": 80
+        }
+      ]
+    }
+  ]
+}
