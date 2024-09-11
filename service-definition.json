@@ -1,0 +1,11 @@
+{
+  "cluster": "sample-cluster",
+  "serviceName": "sample-service",
+  "taskDefinition": "sample-task",
+  "desiredCount": 1,
+  "launchType": "EC2",
+  "deploymentConfiguration": {
+    "maximumPercent": 200,
+    "minimumHealthyPercent": 100
+  }
+}
