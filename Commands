@@ -1,0 +1,22 @@
+ECR Repository:
+
+aws ecr create-repository
+ --repository-name sample-webpage
+aws ecr get-login-password --region <your-region> | docker login --username AWS --password-stdin <your-account-id>.dkr.ecr.<your-region>.amazonaws.com
+
+Docker Image:
+
+docker build -t sample-webpage .
+docker tag sample-webpage:latest <your-account-id>.dkr.ecr.<your-region>.amazonaws.com/sample-webpage:latest
+docker push <your-account-id>.dkr.ecr.<your-region>.amazonaws.com/sample-webpage:latest
+
+ECS Cluster and Task Definition:
+
+aws ecs create-cluster --cluster-name sample-cluster
+aws ecs register-task-definition --cli-input-json file://task-definition.json
+
+ECS Service:
+aws ecs create-service --cli-input-json file://service-definition.json
+
+Check the ECS service status:
+aws ecs describe-services --cluster sample-cluster --services sample-service
