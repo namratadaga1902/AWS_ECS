@@ -2,13 +2,13 @@ ECR Repository:
 
 aws ecr create-repository
  --repository-name sample-webpage
-aws ecr get-login-password --region <your-region> | docker login --username AWS --password-stdin <your-account-id>.dkr.ecr.<your-region>.amazonaws.com
+aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 696121379054.dkr.ecr.us-east-1.amazonaws.com
 
 Docker Image:
 
 docker build -t sample-webpage .
-docker tag sample-webpage:latest <your-account-id>.dkr.ecr.<your-region>.amazonaws.com/sample-webpage:latest
-docker push <your-account-id>.dkr.ecr.<your-region>.amazonaws.com/sample-webpage:latest
+docker tag sample-webpage:latest 696121379054.dkr.ecr.us-east-1.amazonaws.com/sample-webpage:latest
+docker push 696121379054.dkr.ecr.us-east-1.amazonaws.com/sample-webpage:latest
 
 ECS Cluster and Task Definition:
 
